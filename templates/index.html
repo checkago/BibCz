@@ -1,0 +1,89 @@
+{% load static %}
+{% load crispy_forms_field %}
+{% load crispy_forms_tags %}
+
+<!doctype html>
+<html lang="ru">
+    <head>
+    <!-- Обязательные метатеги -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+        <!-- Bootstrap CSS -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/dataTables.bootstrap5.min.css' %}" rel="stylesheet">
+
+        <title>{{ title }}</title>
+    </head>
+
+    <body>
+        <div class="container pt-5">
+            <h1 class="text-center text-primary bg-light text-uppercase">База читателей ИКЦ</h1>
+        </div>
+        <div class="container py-3">
+            <a class="btn btn-primary" href="{% url 'reader_add' %}">Новый читатель</a>
+        </div>
+        <div class="container py-3">
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Фамилия Имя Отчество</th>
+                        <th>Номер читательского билета</th>
+                        <th>Телефон</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for Reader in readers %}
+                    <tr>
+                        <td>{{ Reader.fio }}</td>
+                        <td>{{ Reader.eticket }}</td>
+                        <td>{{ Reader.phone }}</td>
+                        <td><a href="{% url 'reader_edit' Reader.pk %}">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Фамилия Имя Отчество</th>
+                        <th>Номер читательского билета</th>
+                        <th>Телефон</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+
+    <!-- SCRIPT -->
+
+        <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+        <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/dataTables.bootstrap5.min.js' %}"></script>
+
+
+        <script>
+            $(document).ready(function() {
+
+                $('#example').DataTable( {
+                    "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "Все"]],
+                    "paging":   true,
+                    "ordering": true,
+                    "info":     true,
+                    "search": true,
+                    "language": {
+                        url: '{% static 'css/ru.json' %}'
+                    }
+                } );
+            } );
+        </script>
+
+    </body>
+
+</html>
