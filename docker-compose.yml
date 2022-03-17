@@ -10,14 +10,14 @@ services:
     volumes:
     - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-    - "5433:5433"
+    - "5435:5435"
 
   baza:
     build:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/bibsite
+      - ./:/usr/src/baza
     ports:
       - "8080:8080"
     depends_on:
