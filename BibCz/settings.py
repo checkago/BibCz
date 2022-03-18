@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'import_export',
     'crispy_forms',
     'crispy_bootstrap5',
-    'debug_toolbar',
 ]
 
 
@@ -63,7 +62,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'BibCz.urls'
