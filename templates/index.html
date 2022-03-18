@@ -31,6 +31,7 @@
                         <th>Фамилия Имя Отчество</th>
                         <th>Номер читательского билета</th>
                         <th>Телефон</th>
+                        <th>Комментарий</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -40,8 +41,9 @@
                         <td>{{ Reader.fio }}</td>
                         <td>{{ Reader.eticket }}</td>
                         <td>{{ Reader.phone }}</td>
+                        <td>{{ Reader.comment }}</td>
                         <td><a href="{% url 'reader_edit' Reader.pk %}">
-                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-edit fa-2x text-primary"></i>
                             </a>
                         </td>
                     </tr>
@@ -52,6 +54,7 @@
                         <th>Фамилия Имя Отчество</th>
                         <th>Номер читательского билета</th>
                         <th>Телефон</th>
+                        <th>Комментарий</th>
                         <th></th>
                     </tr>
                 </tfoot>

@@ -8,8 +8,8 @@ class ReaderResource(resources.ModelResource):
 
     class Meta:
         model = Reader
-        fields = ('id', 'fio', 'eticket',)
-        export_order = ('id', 'fio', 'eticket')
+        fields = ('id', 'fio', 'eticket', 'comment',)
+        export_order = ('id', 'fio', 'eticket', 'comment')
 
 
 class ReaderAdmin(ImportExportModelAdmin):
